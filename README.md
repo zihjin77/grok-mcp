@@ -2,6 +2,8 @@
 
 一个轻量的 MCP（Model Context Protocol）JSON-RPC 服务，用于将 Grok 搜索能力封装成 MCP 工具。服务端使用 Flask 接收 MCP 请求，并通过子进程调用 CLI 脚本完成实际的 Grok 请求与响应解析。
 
+可配合grok2api項目使用
+
 ## 功能概述
 
 - 提供 MCP JSON-RPC 端点，支持 `initialize`、`tools/list`、`tools/call`。
