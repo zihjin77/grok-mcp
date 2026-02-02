@@ -16,7 +16,7 @@
 
 ## 部署方式
 
-### 方式一：Docker Compose
+### Docker Compose
 
 1. 准备配置（建议用环境变量覆盖敏感信息）：
    - 必需：`GROK_BASE_URL`、`GROK_API_KEY`
@@ -25,10 +25,6 @@
 2. 构建并启动：
 
 ```bash
-# 在项目根目录
-# Windows PowerShell / cmd 均可
-# Docker Desktop 需已启动
-
 docker-compose up -d --build
 ```
 
@@ -36,61 +32,9 @@ docker-compose up -d --build
 
 > 注意：`docker-compose.yml` 使用 `network_mode: host`，在 Windows 环境下行为可能与 Linux 不一致，必要时可改为端口映射（例如 `ports: ["5678:5678"]`）。
 
-### 方式二：本地运行
 
-1. 安装依赖：
+## 
 
-```bash
-pip install flask requests
-```
-
-2. 设置环境变量（示例）：
-
-```bash
-# Windows cmd
-set GROK_BASE_URL=https://your-grok-host
-set GROK_API_KEY=your-api-key
-
-# PowerShell
-$env:GROK_BASE_URL="https://your-grok-host"
-$env:GROK_API_KEY="your-api-key"
-```
-
-3. 启动服务：
-
-```bash
-python mcp_server.py
-```
-
-## MCP 使用示例
-
-`tools/list` 会返回可用工具：
-- `grok_search`
-
-调用 `tools/call` 示例参数：
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "tools/call",
-  "params": {
-    "name": "grok_search",
-    "arguments": {
-      "query": "馬斯克的X最新貼文"
-    }
-  }
-}
-```
-
-## 配置说明
-
-- 默认配置文件：[`config.json`](config.json:1)
-- 支持覆盖优先级：CLI 参数 > 环境变量 > `config.json`
-- 可选的本地机密配置：`config.local.json`
-
-## 安全建议
-
-- 避免在仓库提交明文 `api_key`，建议使用环境变量或 `config.local.json`。
-- 生产环境不要使用 `debug=True`，建议以 WSGI（如 gunicorn）运行。
-
+### 注意事项
+---
+⚠️ 本项目仅供学习和研究目的，请遵守相关使用条款。
