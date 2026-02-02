@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  grok-mcp:
+    network_mode: 'host'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: grok-mcp
+    restart: unless-stopped

@@ -1,0 +1,8 @@
+{
+  "base_url": "your_api_url_here",
+  "api_key": "your_api_key_here",
+  "model": "grok-4-fast",
+  "timeout_seconds": 60,
+  "extra_body": {},
+  "extra_headers": {}
+}
